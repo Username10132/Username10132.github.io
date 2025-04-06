@@ -3,74 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Awesome Website</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Pokémon Card Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- Navigation Bar -->
     <header>
+        <h1>Pokémon Card Shop</h1>
         <nav>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#cart">Cart</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <h1>Welcome to My Awesome Website</h1>
-        <p>Your journey starts here. Explore our services.</p>
-        <a href="#services" class="cta-button">Learn More</a>
+    <!-- Search Bar -->
+    <section id="search">
+        <input type="text" id="search-bar" placeholder="Search for Pokémon packs..." onkeyup="searchProducts()">
     </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="content">
-            <h2>About Us</h2>
-            <p>We are a dedicated team that works hard to bring you the best services. Our mission is to help you achieve your goals with our expertise.</p>
+    <!-- Shop Section -->
+    <section id="shop">
+        <h2>Our Pokémon Packs</h2>
+        <div id="product-list">
+            <!-- Example product (Dynamic content will go here) -->
+            <div class="product" data-name="Shining Legends Pack">
+                <img src="shining-legends.jpg" alt="Shining Legends Pack">
+                <h3>Shining Legends Pack</h3>
+                <p>$10.00</p>
+                <p>Available: <span class="stock">10</span> in stock</p>
+                <button onclick="addToCart('Shining Legends Pack', 10)">Add to Cart</button>
+            </div>
+            <!-- More products will go here... -->
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services">
-        <div class="content">
-            <h2>Our Services</h2>
-            <div class="service-box">
-                <h3>Web Development</h3>
-                <p>Building responsive and modern websites that scale with your business needs.</p>
-            </div>
-            <div class="service-box">
-                <h3>SEO Optimization</h3>
-                <p>Improving your website's visibility and search ranking to attract more customers.</p>
-            </div>
-            <div class="service-box">
-                <h3>Graphic Design</h3>
-                <p>Creating stunning visuals for your brand, from logos to social media designs.</p>
-            </div>
+    <!-- Cart Section -->
+    <section id="cart">
+        <h2>Your Cart</h2>
+        <div id="cart-items">
+            <!-- Cart items will appear here -->
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="content">
-            <h2>Contact Us</h2>
-            <form action="submit_form.php" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
+        <button onclick="checkout()">Proceed to Checkout</button>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 My Awesome Website. All Rights Reserved.</p>
+        <p>&copy; 2025 Pokémon Card Shop. All rights reserved.</p>
     </footer>
-
 </body>
 </html>
