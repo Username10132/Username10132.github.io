@@ -3,176 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PokéPack Shop</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    /* General Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Open Sans', sans-serif;
-      background-color: #f4f4f9;
-      color: #333;
-    }
-    /* Header */
-    header {
-      background-color: #3e8e41;
-      padding: 20px;
-      text-align: center;
-      color: white;
-    }
-    header h1 {
-      font-family: 'Roboto', sans-serif;
-      font-size: 36px;
-    }
-    /* Navigation Bar */
-    nav ul {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      margin-top: 10px;
-    }
-    nav ul li {
-      margin: 0 20px;
-    }
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: bold;
-    }
-    nav ul li a:hover {
-      text-decoration: underline;
-    }
-    /* Search Bar */
-    .search-bar {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-    }
-    .search-bar input {
-      padding: 10px;
-      width: 300px;
-      border-radius: 5px;
-      border: none;
-      font-size: 16px;
-    }
-    /* Product Sections */
-    .product-section {
-      margin: 20px 0;
-      padding: 0 20px;
-    }
-    .product-section h3 {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .product-card {
-      background-color: white;
-      padding: 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-      text-align: center;
-    }
-    .product-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 5px;
-    }
-    .product-card h4 {
-      font-size: 20px;
-      margin-top: 15px;
-    }
-    .product-card p {
-      color: #777;
-      font-size: 14px;
-    }
-    .price {
-      font-size: 18px;
-      color: #333;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-    .pack-options {
-      margin-top: 10px;
-    }
-    .pack-options label {
-      margin-right: 10px;
-    }
-    .pack-options select {
-      padding: 5px;
-    }
-    .add-to-cart {
-      margin-top: 15px;
-    }
-    .add-to-cart button {
-      padding: 10px 20px;
-      background-color: #3e8e41;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    .add-to-cart button:hover {
-      background-color: #2f7033;
-    }
-  </style>
+  <title>Pokemon Card Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Navigation Bar -->
   <header>
-    <h1>PokéPack Shop</h1>
-    <nav>
-      <ul>
+    <nav class="navbar">
+      <div class="logo">
+        <h1>PokéStore</h1>
+      </div>
+      <ul class="nav-links">
         <li><a href="#">Home</a></li>
-        <li><a href="#">Products</a></li>
-        <li><a href="#">About Us</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">About</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
+      <div class="search-bar">
+        <input type="text" placeholder="Search products..." id="search" oninput="searchProducts()">
+        <button><i class="fa fa-search"></i></button>
+      </div>
     </nav>
-    <div class="search-bar">
-      <input type="text" id="search" placeholder="Search for Pokémon packs...">
-    </div>
   </header>
 
-  <!-- Product Sections -->
-  <div class="product-section">
-    <h3>Featured Products</h3>
-    <div class="product-grid">
-      <!-- Example Product Card -->
+  <!-- Hero Section (Trending Products) -->
+  <section class="hero">
+    <h2>Trending: Pokémon Packs</h2>
+    <div class="product-showcase">
       <div class="product-card">
-        <img src="path_to_image.jpg" alt="Pokémon TCG: XY Evolutions Booster Pack">
-        <h4>Pokémon TCG: XY Evolutions Booster Pack</h4>
-        <p>Relive the classic moments with this nostalgic set.</p>
-        <div class="price" id="price-1">$4.00</div>
-        <div class="pack-options">
-          <label for="pack-1">Select Pack Weight:</label>
-          <select id="pack-1" onchange="updatePrice(1)">
-            <option value="light">Light</option>
-            <option value="medium" selected>Medium</option>
-            <option value="heavy">Heavy</option>
-          </select>
-        </div>
-        <div class="add-to-cart">
-          <button onclick="addToCart(1)">Add to Cart</button>
+        <img src="https://example.com/trending-pokemon-pack.jpg" alt="Trending Pokémon Pack">
+        <div class="product-info">
+          <h3>Shiny Charizard Pack</h3>
+          <p>Price: $25.00</p>
+          <button>Add to Cart</button>
         </div>
       </div>
-      <!-- Additional Product Cards can be added here -->
     </div>
-  </div>
+  </section>
 
-  <script>
-    // Function to update price based on selected
-::contentReference[oaicite:14]{index=14}
- 
+  <!-- Featured Products Section -->
+  <section class="featured-products">
+    <h2>New Arrivals & Restocks</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="https://example.com/pokemon-pack1.jpg" alt="Pokémon Pack 1">
+        <div class="product-info">
+          <h3>Pikachu Pack</h3>
+          <p>Price: $15.00</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://example.com/pokemon-pack2.jpg" alt="Pokémon Pack 2">
+        <div class="product-info">
+          <h3>Bulbasaur Pack</h3>
+          <p>Price: $18.00</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+      <!-- Add more product cards as needed -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 PokéStore | All Rights Reserved</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
