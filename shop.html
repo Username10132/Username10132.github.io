@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop - Pokémon Card Store</title>
+    <title>Shop - Pokémon Card Shop</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -21,25 +21,24 @@
     </header>
 
     <main>
-        <section class="filters">
-            <h2>Filter by Category</h2>
-            <label for="rarity">Rarity:</label>
-            <select id="rarity" onchange="filterProducts()">
-                <option value="all">All</option>
-                <option value="rare">Rare</option>
-                <option value="common">Common</option>
-                <option value="ultra-rare">Ultra-Rare</option>
-            </select>
-        </section>
+        <h2>Our Collection</h2>
+        <section class="product-container">
+            <!-- Sample Product Card -->
+            <div class="product-card">
+                <img src="charizard-image.jpg" alt="Charizard Holo">
+                <h3>Charizard - Rare Holo</h3>
+                <p>$50.00</p>
+                <button class="add-to-cart" data-product="charizard">Add to Cart</button>
+            </div>
 
-        <section class="product-list" id="product-list">
-            <!-- Dynamically populated with products -->
+            <!-- Add more products similarly -->
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Pokémon Card Shop</p>
+        <p>&copy; 2025 Pokémon Card Shop | All rights reserved</p>
     </footer>
+
     <script src="scripts.js"></script>
 </body>
 </html>
