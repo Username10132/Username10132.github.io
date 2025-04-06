@@ -3,42 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokémon Card Shop</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>PokéPack Shop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #3e8e41;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        header h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 36px;
+            margin: 0;
+        }
+        .logo {
+            width: 50px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .product-card {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .product-card h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .product-card p {
+            font-size: 14px;
+            color: #777;
+        }
+        .product-card .price {
+            font-size: 16px;
+            color: #333;
+            font-weight: bold;
+        }
+        .footer {
+            background-color: #3e8e41;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .search-bar {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .search-bar input {
+            padding: 10px;
+            width: 300px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .search-bar button {
+            padding: 10px;
+            margin-left: 10px;
+            background-color: #3e8e41;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
+
     <header>
-        <div class="logo"><h1>Pokémon Card Shop</h1></div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-            </ul>
-        </nav>
-        <div class="search-bar"><input type="text" placeholder="Search for Pokémon packs..."></div>
+        <img class="logo" src="https://via.placeholder.com/50" alt="PokéPack Logo">
+        <h1>PokéPack Shop</h1>
     </header>
 
-    <main>
-        <section class="hero">
-            <img src="hero-image.jpg" alt="Pokémon Card Collection">
-            <h2>Exclusive Pokémon Cards Just for You!</h2>
-            <p>Find your favorite cards and packs, and start your collection today!</p>
-            <a href="shop.html" class="cta">Browse Our Collection</a>
-        </section>
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search for Pokémon packs...">
+            <button onclick="searchProducts()">Search</button>
+        </div>
 
-        <section class="featured-products">
-            <h2>Featured Products</h2>
-            <div class="product-list">
-                <!-- Display featured products here -->
-            </div>
-        </section>
-    </main>
+        <div class="product-list">
+            <!-- Product Cards will be inserted here via JavaScript -->
+        </div>
+    </div>
 
-    <footer>
-        <p>&copy; 2025 Pokémon Card Shop</p>
-    </footer>
+    <div class="footer">
+        &copy; 2025 PokéPack Shop. All rights reserved.
+    </div>
+
+    <script>
+        const products = [
+            { name: "Base Set Booster Pack", price: "$100", image: "https://via.placeholder.com/200" },
+            { name: "Shining Legends Pack", price: "$40", image: "https://via.placeholder.com/200" },
+            { name: "Hidden Fates Booster Pack", price: "$80", image: "https://via.placeholder.com/200" },
+            { name: "Charizard GX Tin", price: "$150", image: "https://via.placeholder.com/200" },
+            { name: "Evolutions Booster Pack", price: "$50", image: "https://via.placeholder.com/200" },
+        ];
+
+        function displayProducts(filteredProducts) {
+            const productList = document.querySelector('.product-list');
+            productList.innerHTML = '';
+
+            filteredProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <p>Special Edition</p>
+                    <div class="price">${product.price}</div>
+                `;
+                productList.appendChild(productCard);
+            });
+        }
+
+        function searchProducts() {
+            const searchQuery = document.getElementById('search').value.toLowerCase();
+            const filteredProducts = products.filter(product => product.name.toLowerCase().includes(searchQuery));
+            displayProducts(filteredProducts);
+        }
+
+        displayProducts(products);
+    </script>
+
 </body>
 </html>
