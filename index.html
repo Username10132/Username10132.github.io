@@ -4,54 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokémon Card Shop</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Pokémon Card Shop</h1>
+        <div class="logo"><h1>Pokémon Card Shop</h1></div>
         <nav>
             <ul>
-                <li><a href="#shop">Shop</a></li>
-                <li><a href="#cart">Cart</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="faq.html">FAQ</a></li>
             </ul>
         </nav>
+        <div class="search-bar"><input type="text" placeholder="Search for Pokémon packs..."></div>
     </header>
 
-    <!-- Search Bar -->
-    <section id="search">
-        <input type="text" id="search-bar" placeholder="Search for Pokémon packs..." onkeyup="searchProducts()">
-    </section>
+    <main>
+        <section class="hero">
+            <img src="hero-image.jpg" alt="Pokémon Card Collection">
+            <h2>Exclusive Pokémon Cards Just for You!</h2>
+            <p>Find your favorite cards and packs, and start your collection today!</p>
+            <a href="shop.html" class="cta">Browse Our Collection</a>
+        </section>
 
-    <!-- Shop Section -->
-    <section id="shop">
-        <h2>Our Pokémon Packs</h2>
-        <div id="product-list">
-            <!-- Example product (Dynamic content will go here) -->
-            <div class="product" data-name="Shining Legends Pack">
-                <img src="shining-legends.jpg" alt="Shining Legends Pack">
-                <h3>Shining Legends Pack</h3>
-                <p>$10.00</p>
-                <p>Available: <span class="stock">10</span> in stock</p>
-                <button onclick="addToCart('Shining Legends Pack', 10)">Add to Cart</button>
+        <section class="featured-products">
+            <h2>Featured Products</h2>
+            <div class="product-list">
+                <!-- Display featured products here -->
             </div>
-            <!-- More products will go here... -->
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Cart Section -->
-    <section id="cart">
-        <h2>Your Cart</h2>
-        <div id="cart-items">
-            <!-- Cart items will appear here -->
-        </div>
-        <button onclick="checkout()">Proceed to Checkout</button>
-    </section>
-
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Pokémon Card Shop. All rights reserved.</p>
+        <p>&copy; 2025 Pokémon Card Shop</p>
     </footer>
 </body>
 </html>
